@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>嘸蝦米自定義編碼轉換工具</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft JhengHei', '微軟正黑體', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 40px;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 28px;
+            text-align: center;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 14px;
+            text-align: center;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .info-box {
+            background: #f0f4ff;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin-bottom: 25px;
+            border-radius: 5px;
+        }
+
+        .info-box h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .info-box p {
+            color: #555;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .info-box ul {
+            margin-top: 10px;
+            margin-left: 20px;
+        }
+
+        .info-box li {
+            color: #555;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        label {
+            display: block;
+            color: #444;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 300px;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 14px;
+            font-family: 'Consolas', 'Microsoft JhengHei', monospace;
+            resize: vertical;
+            transition: border-color 0.3s;
+            line-height: 1.6;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .button-container {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+            justify-content: center;
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 40px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .clear-btn {
+            background: #e0e0e0;
+            color: #666;
+        }
+
+        .clear-btn:hover {
+            background: #d0d0d0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .example {
+            background: #fafafa;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-family: 'Consolas', monospace;
+            font-size: 13px;
+            color: #666;
+        }
+        .iconb{
+            display: inline-block; 
+            width: 32px; 
+            height: 32px; 
+            background: #f9f9f9; 
+            border: 1px solid #000; 
+            border-radius: 4px; 
+            text-align: center; 
+            line-height: 32px; 
+            font-size: 22px; 
+            color: #000; 
+            vertical-align: middle; 
+            margin-right: 8px;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><span class="iconb">嘸</span>嘸蝦米加字加詞多行支援工具</h1>
+        <p class="subtitle">讓加字加詞功能支援多行輸入，解決換行符號無法正常匯入的問題</p>
+
+        <div class="info-box">
+            <h3>📝 為什麼需要這個工具？</h3>
+            <p>嘸蝦米的加字加詞功能原本不支援多行內容，此工具可以：</p>
+            <ul>
+                <li>讓你設定多行的自定義內容（如 AI 提示詞）</li>
+                <li>解決 Windows 複製貼上時換行符號被修正的問題</li>
+                <li>下載為文字檔案後，用記事本開啟再複製貼上即可正確匯入</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h3>💡 如何使用？</h3>
+            <p><strong>步驟 1：</strong> 使用此工具編輯並下載文字檔案</p>
+            <p><strong>步驟 2：</strong> 開啟嘸蝦米輸入法的「加字加詞」功能</p>
+            <p style="margin-left: 30px; color: #888; font-size: 13px;">
+                方法一：系統列圖示右鍵 → 輸入法設定 → 加字加詞<br>
+                方法二：直接執行 <code style="background: #f0f0f0; padding: 2px 4px;">C:\Program Files\BoshiamyTIP\LiuBoxEditor.exe</code>
+            </p>
+            <p><strong>步驟 3：</strong> 用記事本開啟下載的檔案，全選複製，貼到加字加詞工具中<img src="guide.png"></p>
+            <p><strong>步驟 4：</strong> 完成！之後在任何地方輸入 <strong style="background: #ffe4e1; padding: 2px 6px; border-radius: 3px;">,tt</strong> 按空白鍵就會自動展開成完整的翻譯提示詞</p>
+            <p style="margin-top: 15px; padding: 10px; background: #f9f9f9; border-radius: 5px;">
+                <strong>實際效果：</strong><br>
+                你輸入：<code style="background: #e0e0e0; padding: 2px 5px;">,tt</code> + 空白鍵<br>
+                自動變成：完整的翻譯專家提示詞（含多行格式）
+            </p>
+        </div>
+
+        <div class="info-box" style="background: #fff9e6; border-left-color: #ffb300;">
+            <h3>🎯 為什麼使用逗號開頭？</h3>
+            <p>使用 <strong>,</strong> (逗號) 開頭可以更好區分自定義代碼，避免與一般輸入混淆：</p>
+            <ul>
+                <li><strong>,tt</strong> → 繁體中文翻譯 (Traditional Translation)</li>
+                <li><strong>,code</strong> → 程式碼審查提示詞</li>
+                <li><strong>,sum</strong> → 文章摘要提示詞</li>
+                <li><strong>,fix</strong> → 錯誤修正提示詞</li>
+                <li><strong>,doc</strong> → 文件撰寫提示詞</li>
+            </ul>
+            <p style="margin-top: 10px;">💡 逗號開頭讓你一眼就能辨識這是自定義快速代碼！</p>
+        </div>
+
+        <label for="text_input">請輸入或貼上您的自定義編碼：</label>
+        <textarea id="text_input" placeholder="範例格式：
+你是專業的繁體中文翻譯專家，請將以下內容翻譯成台灣繁體中文。
+
+翻譯要求：
+1. 保持原文的語氣和風格
+2. 使用台灣的用語習慣
+3. 專有名詞請保留原文並附上中文
+4. 確保翻譯流暢自然
+
+請翻譯以下內容："></textarea>
+
+        <div class="button-container">
+            <button id="btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                下載檔案
+            </button>
+            <button id="clearBtn" class="clear-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="3 6 5 6 21 6"></polyline>
+                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                </svg>
+                清除內容
+            </button>
+        </div>
+
+        <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e0e0e0; text-align: center;">
+            <p style="color: #888; font-size: 13px;">
+                Created by <a href="https://www.threads.com/@mengqiutu" target="_blank" style="color: #667eea; text-decoration: none; font-weight: bold;">July Tu</a> |
+                <a href="https://www.threads.com/@mengqiutu" target="_blank" style="color: #667eea; text-decoration: none;">@mengqiutu</a> on Threads
+            </p>
+        </div>
+    </div>
+
+    <script>
+        let textArea = document.getElementById("text_input");
+        let downloadBtn = document.getElementById("btn");
+        let clearBtn = document.getElementById("clearBtn");
+
+        downloadBtn.addEventListener("click", function() {
+            if (!textArea.value.trim()) {
+                alert("請先輸入要轉換的內容！");
+                return;
+            }
+
+            const blob = new Blob([textArea.value], { type: 'text/plain;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+
+            // 使用時間戳記產生檔名
+            const now = new Date();
+            const timestamp = now.getFullYear() +
+                             String(now.getMonth() + 1).padStart(2, '0') +
+                             String(now.getDate()).padStart(2, '0') + '_' +
+                             String(now.getHours()).padStart(2, '0') +
+                             String(now.getMinutes()).padStart(2, '0');
+            a.download = `boshiamy_custom_${timestamp}.txt`;
+
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        });
+
+        clearBtn.addEventListener("click", function() {
+            if (textArea.value && confirm("確定要清除所有內容嗎？")) {
+                textArea.value = "";
+                textArea.focus();
+            }
+        });
+    </script>
+</body>
+</html>
