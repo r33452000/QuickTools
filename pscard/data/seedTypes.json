@@ -1,0 +1,86 @@
+{
+  "A1": {
+    "type": "alpha",
+    "symbol": "α1",
+    "title": "挑戰派",
+    "description": "有著旺盛的挑戰精神，充滿夢想和希望，希望成為話題的中心。",
+    "image": "a1.png"
+  },
+  "A2": {
+    "type": "alpha",
+    "symbol": "α2",
+    "title": "專家型",
+    "description": "希望隨時有熱衷的事情，喜歡個人戰，專業意識高。",
+    "image": "a2.png"
+  },
+  "A3": {
+    "type": "alpha",
+    "symbol": "α3",
+    "title": "天才型",
+    "description": "自由奔放，理性與感性混雜，在有幹勁跟沒幹勁之間跳躍。",
+    "image": "a3.png"
+  },
+  "A4": {
+    "type": "alpha",
+    "symbol": "α4",
+    "title": "完美主義",
+    "description": "精明能幹，固執，注重權威，追求名譽。",
+    "image": "a4.png"
+  },
+  "B1": {
+    "type": "beta",
+    "symbol": "β1",
+    "title": "氣氛營造者",
+    "description": "奉獻精神，為眼前的事情竭盡全力，短期決戰。",
+    "image": "b1.png"
+  },
+  "B2": {
+    "type": "beta",
+    "symbol": "β2",
+    "title": "現實主義",
+    "description": "關鍵時刻，言行一致的實力派，展示自己好的一面。",
+    "image": "b2.png"
+  },
+  "B3": {
+    "type": "beta",
+    "symbol": "β3",
+    "title": "個性派",
+    "description": "按照自己的節奏去追求獨特性，不會為了迎合對方而裝模作樣。",
+    "image": "b3.png"
+  },
+  "B4": {
+    "type": "beta",
+    "symbol": "β4",
+    "title": "總監型",
+    "description": "重視整體平衡，有志者事竟成，永遠有自己的節奏。",
+    "image": "b4.png"
+  },
+  "C1": {
+    "type": "theta",
+    "symbol": "θ1",
+    "title": "時代先鋒",
+    "description": "抓住最前端的情報，追求新鮮事物，團隊意識強。",
+    "image": "c1.png"
+  },
+  "C2": {
+    "type": "theta",
+    "symbol": "θ2",
+    "title": "沉穩內斂者",
+    "description": "和誰都想成為好朋友，情報王，安全的社交距離。",
+    "image": "c2.png"
+  },
+  "C3": {
+    "type": "theta",
+    "symbol": "θ3",
+    "title": "自然派",
+    "description": "天真無邪，在意其他人的想法，增加附加價值。",
+    "image": "c3.png"
+  },
+  "C4": {
+    "type": "theta",
+    "symbol": "θ4",
+    "title": "董事長型",
+    "description": "全力以赴，講究，一步一步的累積。",
+    "image": "c4.png"
+  }
+}
